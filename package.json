@@ -4,7 +4,7 @@
   "description": "Base template to use when initializing new services for Clearview Social.",
   "main": "index.js",
   "scripts": {
-    "dev": "serverless offline start",
+    "dev": "serverless offline start --reloadHandler",
     "test": "eslint --fix ."
   },
   "repository": {
