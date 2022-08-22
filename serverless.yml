@@ -1,0 +1,41 @@
+#
+# NOTE: update this with your service name
+#
+service: cv-services-template
+
+frameworkVersion: '3'
+
+plugins:
+  - serverless-plugin-typescript
+  - serverless-offline
+  - serverless-plugin-common-excludes
+  - serverless-plugin-include-dependencies
+
+provider:
+  name: aws
+  runtime: nodejs16.x
+  region: us-east-1
+  versionFunctions: false
+  environment:
+    SERVERLESS_STAGE: ${opt:stage, 'dev'}
+
+package:
+  excludeDevDependencies: false
+
+#
+# NOTE: Update your api endpoints to match your service
+#
+functions:
+  hello:
+    handler: api/handler.hello
+    events:
+      - http:
+          path: /
+          method: get
+
+custom:
+  serverless-offline:
+    httpPort: 9000
+    noPrependStageInUrl: true
+  serverlessPluginTypescript:
+    tsConfigFileLocation: './tsconfig.build.json'
