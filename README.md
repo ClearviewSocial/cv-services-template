@@ -4,8 +4,10 @@
 
 This repository is meant to exist as the base template for generating new services to be composed in the Clearview Social SOA infrastructure.
 
-**Important!** To ensure this repo works with the `serverless` command, this repo is public (can be access via serverless their commands to fetch the template).
+----
+***Heads up!*** To ensure this repo works with the `serverless` command, this repo is public (can be access via serverless their commands to fetch the template).
 
+----
 ## Creating a new service
 
 ### Create the repo
@@ -52,4 +54,20 @@ npm ci
 
 ----
 
-Once completed, you may customize your service using the `serverless.yml` file installed, and add additional dependencies as required.
+***Heads up!*** Once completed, you may customize your service using the `serverless.yml` file installed, and add additional dependencies as required.
+
+
+----
+### Deploy the service
+
+* To deploy the service, run the following from the command-line:
+
+```bash
+npx serverless deploy -s dev
+```
+
+* To deploy an individual function within the service:
+
+```bash
+npx serverless deploy function -f <function_name> -s dev
+```
