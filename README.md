@@ -26,4 +26,30 @@ serverless --template-url=https://github.com/ClearviewSocial/cv-services-templat
 
 ### Connect the service to the repo
 
-* 
+* cd into the service just created
+* Run the following command to initialize a git repo:
+
+```bash
+git init
+```
+
+* Run the following commands to connect this repo to the origin created in Step 1 "Create the repo" (**Note:** The `cv-services-<resource>` should match whatever service name was created in Step 2, and whatever repo name was created in Step 1 - these should always match!)
+
+```bash
+git remote add origin git@github.com:ClearviewSocial/cv-services-<resource>.git
+git fetch origin
+git reset --hard origin/master
+git branch --set-upstream-to=origin/master master
+```
+
+### Install service dependencies
+
+* Run the following to install the service dependencies:
+
+```bash
+npm ci
+```
+
+----
+
+Once completed, you may customize your service using the `serverless.yml` file installed, and add additional dependencies as required.
