@@ -1,9 +1,21 @@
-import {describe, expect, test} from '@jest/globals';
+import { describe, expect, test } from '@jest/globals';
+import { APIGatewayProxyResult } from 'aws-lambda';
 import { hello } from '../../api/handler';
 
-describe('sum module', () => {
-  test('adds 1 + 2 to equal 3', () => {
-    const foo = 1 + 2;
-    expect(foo).toBe(3);
-  });
+describe('hello function', () => {
+    test('it says hello', async () => {
+        const event = { key: 'value' };
+        const response = (await hello(event)) as APIGatewayProxyResult;
+        expect(response).toEqual({
+            statusCode: 200,
+            body: JSON.stringify(
+                {
+                    message: 'Go Serverless! Your function executed successfully!',
+                    input: event
+                },
+                null,
+                2
+            )
+        });
+    });
 });
