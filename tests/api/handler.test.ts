@@ -5,7 +5,8 @@ import { hello } from '../../api/handler';
 describe('hello function', () => {
     test('it says hello', async () => {
         const event = { key: 'value' };
-        const response = (await hello(event)) as APIGatewayProxyResult;
+        const context = {};
+        const response = (await hello(event, context)) as APIGatewayProxyResult;
         expect(response).toEqual({
             statusCode: 200,
             body: JSON.stringify(
