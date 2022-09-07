@@ -38,10 +38,11 @@ git init
 * Run the following commands to connect this repo to the origin created in Step 1 "Create the repo" (**Note:** The `cv-services-<resource>` should match whatever service name was created in Step 2, and whatever repo name was created in Step 1 - these should always match!)
 
 ```bash
+git add .
+git commit -m "first commit"
+git branch -M master
 git remote add origin git@github.com:ClearviewSocial/cv-services-<resource>.git
-git fetch origin
-git reset --hard origin/master
-git branch --set-upstream-to=origin/master master
+git push -u origin master
 ```
 
 ### Install service dependencies
