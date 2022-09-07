@@ -47,7 +47,7 @@ git push -u origin master
 
 ### Install service dependencies
 
-* Run the following to install the service dependencies:
+* If the `serverless` command did _not_ install dependencies, run the following to install the service dependencies:
 
 ```bash
 npm ci
